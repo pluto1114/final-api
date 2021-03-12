@@ -1,28 +1,38 @@
 {
-  "name": "final-api",
-  "version": "1.0.0",
-  "description": "api generator",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node dist/app.js",
-    "watch": "nodemon --watch ./src/**/* -e ts,tsx --exec ts-node ./src/app.ts"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "class-transformer": "^0.4.0",
-    "class-validator": "^0.13.1",
-    "glob": "^7.1.6",
-    "koa": "^2.13.1",
-    "koa-router": "^10.0.0",
-    "koa-ts-controllers": "^3.2.2"
-  },
-  "devDependencies": {
-    "@types/koa": "^2.13.0",
-    "@types/koa-router": "^7.4.1",
-    "nodemon": "^2.0.7",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.2"
-  }
+   "name": "final-api",
+   "version": "1.0.0",
+   "description": "api generator",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "ts-node src/index.ts",
+      "watch": "nodemon --watch ./src/**/* -e ts,tsx --exec ts-node ./src/app.ts",
+      "db": "npx typeorm-model-generator -h 94.191.121.109 -d final-api -p 3306 -u root -x pluto1114 -e mysql -o src/entity --noConfig true --ce pascal --cp camel"
+   },
+   "author": "",
+   "license": "MIT",
+   "dependencies": {
+      "class-transformer": "^0.4.0",
+      "class-validator": "^0.13.1",
+      "glob": "^7.1.6",
+      "handlebars": "^4.7.7",
+      "koa": "^2.13.1",
+      "koa-body": "^4.2.0",
+      "koa-router": "^10.0.0",
+      "koa-ts-controllers": "^3.2.2",
+      "mysql": "^2.14.1",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.2.22",
+      "typeorm-model": "^0.1.0",
+      "typeorm-model-generator": "^0.4.5"
+   },
+   "devDependencies": {
+      "@types/koa": "^2.13.0",
+      "@types/koa-bodyparser": "^4.3.0",
+      "@types/koa-router": "^7.4.1",
+      "@types/node": "^8.0.29",
+      "nodemon": "^2.0.7",
+      "ts-node": "^3.3.0",
+      "typescript": "^3.3.3333"
+   }
 }

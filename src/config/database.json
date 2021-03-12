@@ -1,0 +1,16 @@
+{
+    "development": {
+      "host": "94.191.121.109",
+      "dialect": "mysql",
+      "username": "root",
+      "password": "pluto1114",
+      "port": 3306,
+      "database": "final-api"
+    },
+    "test": {
+      //...
+    },
+    "production": {
+      //...
+    }
+  }
