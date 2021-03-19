@@ -17,7 +17,7 @@ class {{capitalName}}Controller {
     async create(@Body() body){
         const one = new {{capitalName}}();
         Object.assign(one,body)
-        one.createAt=new Date()
+        one['createAt']==undefined && (one['createAt']=new Date())
         return one.save();
     }
 

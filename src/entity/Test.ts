@@ -2,7 +2,9 @@ import { BaseEntity } from "typeorm";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("test", { schema: "final-api" })
-export class Test extends BaseEntity{
+export class Test extends BaseEntity {
+
+
   @PrimaryGeneratedColumn({ type: "int", name: "id" })
   id: number;
 
@@ -11,6 +13,9 @@ export class Test extends BaseEntity{
 
   @Column("text", { name: "text", nullable: true })
   text: string | null;
+
+  @Column("int", { name: "user_id", nullable: true })
+  userId: number | null;
 
   @Column("datetime", { name: "create_at", nullable: true })
   createAt: Date | null;

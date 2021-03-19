@@ -19,12 +19,13 @@ for (const name of controllers) {
     };
     controllerTplArr.push({
         name: name,
+        capitalName: _.capitalize(name),
         tpl: template(data)
     })
 }
-let filePath = 'src/controller'
+let filePath = 'src/controller/'
 for (const ctpl of controllerTplArr) {
-    let file = path.resolve(__dirname, filePath) + `${ctpl.name}.ts`
+    let file = path.resolve(__dirname, filePath) + `/${ctpl.capitalName}Controller.ts`
     if (!fs.existsSync(file)) {
         fs.writeFileSync(file, ctpl.tpl)
     }

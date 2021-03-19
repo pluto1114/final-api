@@ -1,7 +1,10 @@
+import { BaseEntity } from "typeorm";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("user", { schema: "final-api" })
-export class User {
+export class User extends BaseEntity {
+
+
   @PrimaryGeneratedColumn({ type: "int", name: "id" })
   id: number;
 

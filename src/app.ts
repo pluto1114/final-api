@@ -9,6 +9,7 @@ const koaBody = require('koa-body');
 const app = new Koa();
 const router = new Router();
 
+console.time('loading');
 (async () => {
     await bootstrapControllers(app, {
         router: router,
@@ -43,3 +44,4 @@ const router = new Router();
 // router.all('/*', async ctx => {
 //     throw Boom.notFound();
 // });
+console.timeEnd('loading');

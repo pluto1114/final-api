@@ -1,23 +1,31 @@
-GET http://localhost:3000/api/v1/foo HTTP/1.1
+GET http://localhost:3000/api/v1/test HTTP/1.1
 
 ###
 
-GET http://localhost:3000/api/v1/foo/handlers HTTP/1.1
+GET http://localhost:3000/api/v1/test/custom-query HTTP/1.1
 
 ###
 
-DELETE http://localhost:3000/api/v1/foo/4 HTTP/1.1
+DELETE http://localhost:3000/api/v1/test/9 HTTP/1.1
 
 ###
 
-GET http://localhost:3000/api/v1/foo/1 HTTP/1.1
+GET http://localhost:3000/api/v1/test/7 HTTP/1.1
 
 ###
+PATCH http://localhost:3000/api/v1/test/7 HTTP/1.1
+Content-Type: application/json
 
-POST http://localhost:3000/api/v1/foo HTTP/1.1
+{
+    "title": "sample712"
+}
+
+###
+POST http://localhost:3000/api/v1/test HTTP/1.1
 Content-Type: application/json
 
 {
     "title": "sample",
     "text": "Wed, 21 Oct 2015 18:27:50 GMT"
 }
+
