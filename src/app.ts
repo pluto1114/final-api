@@ -5,11 +5,12 @@ import * as Boom from '@hapi/Boom';
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 const koaBody = require('koa-body');
+const passport = require('koa-passport');
 
 const app = new Koa();
 const router = new Router();
 
-console.time('loading');
+console.time('compiling');
 (async () => {
     await bootstrapControllers(app, {
         router: router,
@@ -32,6 +33,9 @@ console.time('loading');
     });
 
     app.use(koaBody());
+    app.use(passport.initialize())
+    app.use(passport.session()) 
+    require('./config/passport')(passport);
     app.use( router.routes() );
     app.listen(3000);
 
@@ -44,4 +48,4 @@ console.time('loading');
 // router.all('/*', async ctx => {
 //     throw Boom.notFound();
 // });
-console.timeEnd('loading');
+console.timeEnd('compiling');
