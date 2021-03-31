@@ -9,6 +9,7 @@ const opts = {
 }
 module.exports=passport=>{
     passport.use(new JwtStrategy(opts,async (jwt_payload,done)=>{
+        console.log({jwt_payload})
     	//jwt_payload 返回的是登录时返回的数据 即payload
         const user=await User.findOne(jwt_payload.id);
         if(user){
@@ -17,6 +18,7 @@ module.exports=passport=>{
             done(null,false);
         }
     }))
+    return passport
 }
 // 
 

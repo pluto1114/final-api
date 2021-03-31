@@ -1,13 +1,16 @@
-import { Body, Controller, Ctx, Delete, Get, Params, Patch, Post, Put, Req, Res } from 'koa-ts-controllers';
+import { Body, Controller, Ctx, Delete, Flow, Get, Params, Patch, Post, Put, Req, Res } from 'koa-ts-controllers';
 import * as Boom from '@hapi/Boom';
 import { Test } from '../entity/Test'
 import { TestExt } from '../ext/TestExt';
+import {authMiddleware} from '../middleware/authMiddleware'
+const passport = require('koa-passport');
 
 @Controller('/test')
+@Flow([authMiddleware])
 class TestController {
 
     @Get('/')
-    async list() {
+    async list(@Ctx() ctx) {
         const list = await Test.find();
         return list
     }

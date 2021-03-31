@@ -49,3 +49,5 @@ console.time('compiling');
 //     throw Boom.notFound();
 // });
 console.timeEnd('compiling');
+
+export const passportApp=passport
