@@ -1,9 +1,4 @@
 import { Body, Controller, Ctx, Delete, Flow, Get, Params, Patch, Post, Put, Req, Res } from 'koa-ts-controllers';
-import * as Boom from '@hapi/Boom';
-import { Test } from '../entity/Test'
-import { TestExt } from '../ext/TestExt';
-import {authMiddleware} from '../middleware/authMiddleware'
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('../config/default');
 @Controller('/loginAction')
@@ -22,6 +17,7 @@ class LoginActionController {
             expiresIn: 3600
         });
 
+        ctx.append('X-AuthToken',token);
         return token
     }
 
