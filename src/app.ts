@@ -54,8 +54,11 @@ console.time('compiling');
 
     console.log('Server is runing !! Wait database to connect...')
 
-    await createConnection()
-
+    let connection=await createConnection()
+    console.log(connection.options.database)
+    app.use(ctx=>{
+        ctx.state.database=connection.options.database
+    })
     console.log('database connection finished!!')
 })()
 // router.all('/*', async ctx => {
