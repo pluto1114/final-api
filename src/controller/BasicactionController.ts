@@ -2,6 +2,7 @@ import { Body, Controller, Ctx, Delete, Flow, Get, Params, Post, Put, Req } from
 import * as Boom from '@hapi/Boom';
 import { TestExt } from '../ext/TestExt';
 import { ipMiddleware } from '../middleware/ipMiddleware';
+var exec = require('child_process').exec;
 
 @Controller('/basicAction')
 @Flow([ipMiddleware])

@@ -80,43 +80,21 @@
             <div class="container">
                 <h2 class="block_title">Services</h2>
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6" v-for="(tableName,index) in tableNames" :key="index">
                         <div class="services">
                             <div class="service-wrap">    
                                 <i class="pe-7s-science pe-dj pe-va"></i>
-                                <h3>Creative Idea</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, commodi.</p>
+                                <h3>{{tableName}}</h3>
+                                <h4>
+                                    <a href="#">生成</a>
+                                </h4>
+                                    
+                                
                             </div>
                         </div>
                         
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="services">
-                            <div class="service-wrap">
-                                <i class="pe-7s-monitor pe-dj pe-va"></i>
-                                <h3>Responsive Design</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, commodi.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="services">
-                            <div class="service-wrap">
-                                <i class="pe-7s-edit pe-dj pe-va"></i>
-                                <h3>Clean &amp; Nice</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, commodi.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="services">
-                            <div class="service-wrap">
-                                <i class="pe-7s-config pe-dj pe-va"></i>
-                                <h3>Support</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, commodi.</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section><!-- services -->
@@ -125,63 +103,7 @@
 
         <!-- Contact Area -->
 
-        <section id="contact" class="mapWrap">
-            <div id="googleMap" style="width:100%;"></div>
-            <div id="contact-area">
-                <div class="container">
-                    <h2 class="block_title">Hey !!!</h2>
-                    <div class="row">
-                        <div class="col-xs-12">
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="moreDetails">
-                                <h2 class="con-title">More About me</h2>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum animi repudiandae nihil aspernatur repellat temporibus doloremque sint ea laboriosam, excepturi iure inventore rerum voluptatibus, suscipit totam, sit necessitatibus. Rerum, blanditiis. </p>
-                                <ul class="address">
-                                    <li><i class="pe-7s-map-marker"></i><span>1600 Pennsylvania Ave NW,<br>Washington, DC 20500,<br>United States</span></li>
-                                    <li><i class="pe-7s-mail"></i><span>example@gmail.com</span></li>
-                                    <li><i class="pe-7s-phone"></i><span>+1-202-555-0144</span></li>
-                                    <li><i class="pe-7s-global"></i><span><a href="#">www.themewagon.com</a></span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <h2 class="con-title">Drop us a line</h2>
-                            <form role="form">
-                              <div class="form-group">
-                                <input type="text" class="form-control" id="user_name" placeholder="Enter your name">
-                              </div>
-                              <div class="form-group">
-                                <input type="email" class="form-control" id="your_email" placeholder="Enter your email">
-                              </div>
-                              <div class="form-group">
-                                <textarea name="InputMessage" id="user_message" class="form-control" rows="5" required></textarea>
-                              </div>
-
-                              <button type="submit" class="btn medium">Let us know</button>
-                            </form>   
-                        </div>
-                    </div>
-                </div><!-- container -->
-            </div><!-- contact-area -->
-            <div id="social">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <ul class="scoialinks">
-                                <li class="normal-txt">Find me on</li>
-                                <li class="social-icons"><a class="facebook" href="#"></a></li>
-                                <li class="social-icons"><a class="twitter" href="#"></a></li>
-                                <li class="social-icons"><a class="linkedin" href="#"></a></li>
-                                <li class="social-icons"><a class="google-plus" href="#"></a></li>
-                                <li class="social-icons"><a class="wordpress" href="#"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- social -->
-        </section><!-- contact -->
-
+        
         <!-- Footer Area -->
 
         <footer>
@@ -204,7 +126,7 @@
         <script src="assets/js/smooth-scroll.js"></script>
         <script src="assets/js/owl.carousel.js"></script>
         <script src="assets/js/script.js"></script>
-        
+        <script crossorigin="anonymous" integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==" src="https://lib.baomitu.com/vue/2.6.12/vue.min.js"></script>
         <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
         <script src="assets/js/api.js"></script>
     <style>
