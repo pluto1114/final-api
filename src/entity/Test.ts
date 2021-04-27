@@ -3,8 +3,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("test", { schema: "final-api" })
 export class Test extends BaseEntity {
-
-
   @PrimaryGeneratedColumn({ type: "int", name: "id" })
   id: number;
 

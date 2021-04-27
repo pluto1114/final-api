@@ -1,8 +1,11 @@
 import { Body, Controller, Ctx, Delete, Flow, Get, Params, Post, Put, Req } from 'koa-ts-controllers';
-import * as Boom from '@hapi/Boom';
+import { createConnection } from 'typeorm';
+
 import { TestExt } from '../ext/TestExt';
 import { ipMiddleware } from '../middleware/ipMiddleware';
-var exec = require('child_process').exec;
+import * as databaseConfig from '../../ormconfig.js'
+
+var execSync = require('child_process').execSync;
 
 @Controller('/basicAction')
 @Flow([ipMiddleware])
@@ -25,7 +28,25 @@ class BasicActionController {
     }
 
     
+    @Post('/gene')
+    async gene(@Body() body){
+        const {type,host,port,username,password,database}=databaseConfig
+        
+        execSync(`npx typeorm-model-generator -h ${host} -d ${database} -p ${port} -u ${username} -x ${password} -e ${type} -o src/entity --noConfig true --ce pascal --cp camel && node geneentity`)
 
+        return 'ok'
+    }
+
+    @Post('/genec')
+    async genec(@Body() body){
+        const {tableName}=body
+        // exec(`node genec ${tableName}`)
+        const {type,host,port,username,password,database}=databaseConfig
+        
+        execSync(`node genec ${tableName}`)
+
+        return 'ok'
+    }
     
 
    

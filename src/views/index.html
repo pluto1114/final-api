@@ -2,140 +2,136 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
+<!--[if gt IE 8]><!-->
 
-<html class="no-js"> <!--<![endif]-->
-    <head>
-        <title>final-api</title>
+<html class="no-js">
+<!--<![endif]-->
 
-        <!-- meta -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
-        <!-- stylesheets -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/font_icon/css/pe-icon-7-stroke.css">
-        <link rel="stylesheet" href="assets/font_icon/css/helper.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.css">
-        <link rel="stylesheet" href="assets/css/owl.theme.css">
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+<head>
+    <title>final-api</title>
 
-        <!-- google fonts -->
-        <!-- <link href='http://fonts.useso.com/css?family=Dosis:200,300,400,500|Lato:300,400,700,900,300italic,400italic,700italic,900italic|Raleway:400,200,300,500,100|Titillium+Web:400,200,300italic,300,200italic' rel='stylesheet' type='text/css'> -->
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <script src="assets/js/modernizr.js"></script>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font_icon/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="assets/font_icon/css/helper.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    </head>
-    <body id="body">
-        <!--[if lt IE 7]>
+    <!-- google fonts -->
+    <!-- <link href='http://fonts.useso.com/css?family=Dosis:200,300,400,500|Lato:300,400,700,900,300italic,400italic,700italic,900italic|Raleway:400,200,300,500,100|Titillium+Web:400,200,300italic,300,200italic' rel='stylesheet' type='text/css'> -->
+
+    <script src="assets/js/modernizr.js"></script>
+
+</head>
+
+<body id="body">
+    <!--[if lt IE 7]>
                 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Header area -->
-        <header id="header">
-            <div class="center text-center">
-                <h1 class="bigheadline">final-api</h1>
-                <h4 class="subheadline">简单、快捷的Restful API构建脚手架</h4>
+    <!-- Header area -->
+    <header id="header">
+        <div class="center text-center">
+            <h1 class="bigheadline">final-api</h1>
+            <h4 class="subheadline">简单、快捷的Restful API构建脚手架</h4>
+        </div>
+        <div class="bottom">
+            <a data-scroll href="#navigation" class="scrollDown animated pulse" id="scrollToContent"><i
+                    class="pe-7s-angle-down-circle pe-va"></i></a>
+        </div>
+    </header>
+
+    <!-- Navigation area -->
+    <section id="navigation">
+        <div class="container">
+
+        </div>
+    </section>
+
+    <!-- Content Area -->
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">企业网站模板</a></div>
+
+    <!-- services section -->
+
+    <section id="services" class="service-area">
+        <div class="container">
+            <h2 class="block_title">Resources</h2>
+            <div class="row">
+                <ol class="op-readme">
+                    <li><span>生成与数据表对应的模型</span><button class="btn btn-info" @click="onGeneClick()">点击生成</button></li>
+                    <li><span>生成操作资源的API</span></li>
+                </ol>
             </div>
-            <div class="bottom">
-                <a data-scroll href="#navigation" class="scrollDown animated pulse" id="scrollToContent"><i class="pe-7s-angle-down-circle pe-va"></i></a>
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>资源名</th>
+                        <th>访问验证</th>
+                        <th>生成API</th>
+                        <th>访问测试</th>
+                    </tr>
+                    <tr v-for="(tableName,index) in tableNames" :key="index">
+                        <td>{{index+1}}</td>
+                        <td>{{tableName}}</td>
+                        <td>
+                            <label>
+                                <input type="checkbox" value="">
+                                Token验证
+                            </label>
+                        </td>
+                        <td>
+                            <button class="btn btn-info" @click="onGeneAPIClick(tableName)">点击生成</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-info" @click="onGeneClick(tableName)">测试</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </header>
 
-        <!-- Navigation area -->
-        <section id="navigation">
-            <div class="container">
-                <!-- <div class="row">
-                    <div class="col-xs-6">
-                        <div class="logo"><a data-scroll href="#body" class="logo-text">final-api</a></div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="nav">
-                            <a href="#" data-placement="bottom" title="Menu" class="menu" data-toggle="dropdown"><i class="pe-7s-menu"></i></a>
-                             <div class="dropdown-menu">
-                                 <div class="arrow-up"></div>
-                                 <ul>
-                                     <li><a data-scroll href="#body">Home <i class="pe-7s-home"></i></a><span class="menu-effect"></span></li>
-                                     <li><a data-scroll href="#services">Service <i class="pe-7s-config"></i></a><span class="menu-effect"></span></li>
-                                     <li><a data-scroll href="#portfolio">Portfolio <i class="pe-7s-glasses"></i></a><span class="menu-effect"></span></li>
-                                     <li><a data-scroll href="#testimonial">Testimonial <i class="pe-7s-comment"></i><span class="menu-effect"></span></a></li>
-                                     <li><a data-scroll href="#contact">Contact <i class="pe-7s-help1"></i></a><span class="menu-effect"></span></li>
-                                 </ul>
-                             </div>
-                        </div>
-                    </div>
-
-                </div> -->
-            </div>            
-        </section>
-        
-        <!-- Content Area -->
-        <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-
-        <!-- services section -->
-
-        <section id="services" class="service-area">
-            <div class="container">
-                <h2 class="block_title">Services</h2>
-                <div class="row">
-                    <div class="col-md-3 col-sm-6" v-for="(tableName,index) in tableNames" :key="index">
-                        <div class="services">
-                            <div class="service-wrap">    
-                                <i class="pe-7s-science pe-dj pe-va"></i>
-                                <h3>{{tableName}}</h3>
-                                <h4>
-                                    <a href="#">生成</a>
-                                </h4>
-                                    
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        </section><!-- services -->
+            
+        </div>
+    </section><!-- services -->
 
 
 
-        <!-- Contact Area -->
+    <!-- Contact Area -->
 
-        
-        <!-- Footer Area -->
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p class="copyright">© Copyright 2015 </p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="designed">Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
-        <!-- Necessery scripts -->
-        <script src="assets/js/jquery-2.1.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.actual.min.js"></script>
-        <script src="assets/js/smooth-scroll.js"></script>
-        <script src="assets/js/owl.carousel.js"></script>
-        <script src="assets/js/script.js"></script>
-        <script crossorigin="anonymous" integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==" src="https://lib.baomitu.com/vue/2.6.12/vue.min.js"></script>
-        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
-        <script src="assets/js/api.js"></script>
+    <!-- Necessery scripts -->
+    <script src="assets/js/jquery-2.1.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.actual.min.js"></script>
+    <script src="assets/js/smooth-scroll.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script crossorigin="anonymous"
+        integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw=="
+        src="https://lib.baomitu.com/vue/2.6.12/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="assets/js/api.js"></script>
     <style>
-.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
-</style>
-<div class="copyrights" id="links20210126">
-	Collect from <a href="#"  title="网站模板">模板之家</a>
-	<a href="#" title="组卷网">组卷网</a>
-</div>
+        .copyrights {
+            text-indent: -9999px;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            overflow: hidden;
+        }
+    </style>
+    <div class="copyrights" id="links20210126">
+        Collect from <a href="#" title="网站模板">模板之家</a>
+        <a href="#" title="组卷网">组卷网</a>
+    </div>
 </body>
-</html>
 
+</html>

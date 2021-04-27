@@ -9,6 +9,7 @@ const koaBody = require('koa-body');
 const passport = require('koa-passport');
 // const KoaViews = require("koa-views");
 const serve = require('koa-static');
+const port=3000
 
 const app = new Koa();
 const router = new Router();
@@ -50,16 +51,16 @@ console.time('compiling');
     //     })
     //   })
     
-    app.listen(3000);
+    app.listen(port);
 
     console.log('Server is runing !! Wait database to connect...')
 
     let connection=await createConnection()
     console.log(connection.options.database)
-    app.use(ctx=>{
-        ctx.state.database=connection.options.database
-    })
+  
     console.log('database connection finished!!')
+
+    console.log(`OK! Let us to access http://localhost:${port}`)
 })()
 // router.all('/*', async ctx => {
 //     throw Boom.notFound();

@@ -5,8 +5,20 @@ var fs = require('fs');
 var os = require('os');
 var rl = require('readline');
 
-const Handlebars = require("handlebars");
-const controllers = process.argv.slice(2)
+// import {createConnection} from "typeorm";
+// let connection=await createConnection()
+// let manager=connection.createEntityManager()
+// const tables=await manager.query('show tables')
+// const tableNames=[]
+// for (const t of tables) {
+//     const values=Object.values(t)
+//     if(values.length>0){
+//         const value=values[0]+''
+//         if(!value.startsWith('fa_')){
+//             tableNames.push(values[0])
+//         }
+//     }
+// }
 
 let entities = fs.readdirSync('src/entity', 'utf-8')
 for (const fileName of entities) {

@@ -7,7 +7,7 @@
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "ts-node src/index.ts",
       "watch": "nodemon --watch ./src/**/* -e ts,tsx --exec ts-node ./src/app.ts",
-      "db": "npx typeorm-model-generator -h 94.191.121.109 -d final-api -p 3306 -u root -x pluto1114 -e mysql -o src/entity --noConfig true --ce pascal --cp camel"
+      "db": "npx typeorm-model-generator -h 94.191.121.109 -d final-api -p 3306 -u root -x pluto1114 -e mysql -o src/entity --noConfig true --ce pascal --cp camel && node geneentity"
    },
    "author": "",
    "license": "MIT",

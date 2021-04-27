@@ -42,11 +42,11 @@ a:hover,a:active,a:focus{
 	outline: none;
 }
 .btn {
-    color: #fff;
+    /* color: #fff;
     background: transparent;
     border: 1px solid #fff;
     border-radius: 0px;
-    font-size: 1.2em;
+    font-size: 1.2em; */
     transition: 0.4s ease all;
 }
 .btn:hover {
@@ -697,4 +697,14 @@ footer {
 	    top: 70%;
 	    left: 44%;
 	}
+}
+
+.op-readme{
+	font-size: 1.35em;
+}
+.op-readme li{
+	line-height: 2.8;
+}
+.op-readme li span{
+	margin-right: 1.2em;
 }
