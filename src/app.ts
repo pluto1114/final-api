@@ -2,6 +2,7 @@ import * as Koa from 'koa'
 import * as Router from 'koa-router'
 import * as Cors from 'koa-cors'
 import {bootstrapControllers} from 'koa-ts-controllers';
+
 import * as Boom from '@hapi/Boom';
 import "reflect-metadata";
 import {createConnection} from "typeorm";
@@ -11,7 +12,17 @@ const passport = require('koa-passport');
 const serve = require('koa-static');
 const port=3000
 
-const app = new Koa();
+const app = new Koa<{}, {
+    success: Function;
+    error: Function;
+  }>();
+  app.context.success=function (obj){
+    return {
+        code:'0',
+        message:obj.message||'message',
+        request:`${this.method} ${this.url}`
+    }
+  }
 const router = new Router();
 
 console.time('compiling');
@@ -44,12 +55,6 @@ console.time('compiling');
     app.use( router.routes() );
     
     app.use(serve(__dirname + "/views"))
-    // app.use( async ( ctx ) => {
-    //     let title = 'hello koa2'
-    //     await ctx.render('index', {
-    //       title,
-    //     })
-    //   })
     
     app.listen(port);
 

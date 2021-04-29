@@ -3,10 +3,11 @@ import * as Boom from '@hapi/Boom';
 import { Test } from '../entity/Test'
 import { TestExt } from '../ext/TestExt';
 import {authMiddleware} from '../middleware/authMiddleware'
+import { Resp } from '../util/Resp';
 const passport = require('koa-passport');
 
 @Controller('/test')
-@Flow([authMiddleware])
+// @Flow([authMiddleware])
 class TestController {
 
     @Get('/')
@@ -29,36 +30,38 @@ class TestController {
     }
 
     @Patch('/:id')
-    async update(@Params('id') id,@Body() body){
+    async update(@Params('id') id,@Body() body,@Ctx() ctx){
         const one=await Test.findOne(id)
         if(one){
             Object.assign(one,body)
             one['updateAt']==undefined && (one['updateAt']=new Date())
-            return one.save()
+            one.save()
+            return ctx.success({message:'The action finished'})
         }
         
         
     }
 
     @Put('/:id')
-    async replace(@Params('id') id,@Body() body){
+    async replace(@Params('id') id,@Body() body,@Ctx() ctx){
         let one=await Test.findOne(id)
         if(one){
             one=new Test()
             Object.assign(one,body)
             one['updateAt']==undefined && (one['updateAt']=new Date())
-            return one.save()
+            one.save()
+            return ctx.success({message:'The action finished'})
         }
         
         
     }
 
     @Delete('/:id')
-    async delete(@Params('id') id){
+    async delete(@Params('id') id,@Ctx() ctx){
         let one=await Test.findOne(id)
         if(one){
             await Test.delete({id})
-            return one
+            return ctx.success({message:'The action finished'})
         }
         
     }
@@ -66,7 +69,6 @@ class TestController {
     @Get('/custom-query')
     async customQuery(){
         const list=await TestExt.findWithUser(1)
-        // const list=await Test.query('select t1.*,u.age from test t1 join user u on t1.user_id=u.id where u.id=1')
         return list
     }
 

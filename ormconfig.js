@@ -10,7 +10,6 @@ const config={
     "entities": [
        "src/entity/**/*.ts"
     ],
-    "entityPrefix":"fa_",
     "migrations": [
        "src/migration/**/*.ts"
     ],
